@@ -1,535 +1,732 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>school photographer Pleasant Knoll Fort Mill | Nathan Bingle Photography</title>
-  <meta name="description" content="Premium school photography for Pleasant Knoll Middle School in Fort Mill, SC. Nathan Bingle Photography delivers zero-chaos picture day operations, 90%+ participation, 48-hour turnaround, and transparent revenue share." />
-  <meta name="keywords" content="school photographer Pleasant Knoll Fort Mill, school photographer Fort Mill, SC, Fort Mill SD school photos, Nathan Bingle Photography" />
-  <meta property="og:title" content="school photographer Pleasant Knoll Fort Mill | Nathan Bingle Photography" />
-  <meta property="og:description" content="Zero-chaos school photography with 90%+ participation and 48-hour turnaround in Fort Mill, SC." />
-  <meta property="og:type" content="website" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg: #0a0c10;
-      --bg-alt: #10141d;
-      --card: #111722;
-      --text: #f2f4f8;
-      --muted: #aab1c3;
-      --gold: #e8a020;
-      --line: rgba(255, 255, 255, 0.12);
-      --radius: 18px;
-      --maxw: 1220px;
-      --shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>School Photographer for Pleasant Knoll Middle School | Nathan Bingle Photography</title>
+<meta name="description" content="Nathan Bingle Photography provides streamlined, high-volume school and sports photography for Pleasant Knoll Middle School in Fort Mill, SC. Smooth photo days, happy parents, zero admin burden.">
+<meta name="keywords" content="school photographer Pleasant Knoll Fort Mill, school photographer Fort Mill, sports photographer Fort Mill SC">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#f5f2ec;
+  --cream2:#ede9e0;
+  --cream3:#e5e0d5;
+  --white:#ffffff;
+  --charcoal:#1e1e1e;
+  --charcoal2:#2d2d2d;
+  --charcoal3:#3d3d3d;
+  --gold:#b8870a;
+  --gold2:#d4a012;
+  --gold-pale:rgba(184,135,10,0.1);
+  --gold-border:rgba(184,135,10,0.25);
+  --text:#1e1e1e;
+  --text2:#5a5a5a;
+  --text3:#8a8a8a;
+  --border:rgba(30,30,30,0.1);
+  --border2:rgba(30,30,30,0.18);
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Poppins',sans-serif;
+  background:var(--cream);
+  color:var(--text);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  line-height:1.6;
+}
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { width: 100%; min-height: 100%; overflow-x: hidden; }
-    body {
-      background: radial-gradient(1000px 600px at 12% -8%, rgba(232, 160, 32, 0.17), transparent 50%), var(--bg);
-      color: var(--text);
-      font-family: "DM Sans", system-ui, -apple-system, sans-serif;
-      line-height: 1.6;
-      scroll-behavior: smooth;
-    }
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  background:rgba(245,242,236,0.97);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  height:68px;padding:0 5%;
+  display:flex;align-items:center;justify-content:space-between;
+}
 
-    .container { width: min(calc(100% - 2rem), var(--maxw)); margin: 0 auto; }
-    h1, h2, h3, .eyebrow, .num, .step-index { font-family: "Barlow Condensed", Impact, sans-serif; text-transform: uppercase; line-height: 0.95; letter-spacing: 0.03em; }
-    .eyebrow { color: var(--gold); display: inline-block; margin-bottom: 0.8rem; font-size: 0.88rem; }
-    .reveal { opacity: 0; transform: translateY(26px); transition: opacity 750ms ease, transform 750ms ease; }
-    .reveal.in { opacity: 1; transform: translateY(0); }
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-link{
+  font-size:10px;font-weight:500;
+  letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--text2);text-decoration:none;
+  transition:color 0.2s;
+}
+.nav-link:hover{color:var(--gold)}
+.nav-cta{
+  font-size:10px;font-weight:600;
+  letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--cream);background:var(--charcoal);
+  padding:11px 24px;text-decoration:none;
+  transition:all 0.2s;
+}
+.nav-cta:hover{background:var(--gold)}
 
-    .nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 60;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      background: linear-gradient(to bottom, rgba(10, 12, 16, 0.9), rgba(10, 12, 16, 0.45));
-      backdrop-filter: blur(8px);
-    }
-    .nav-inner {
-      width: min(calc(100% - 2rem), var(--maxw));
-      margin: 0 auto;
-      padding: 0.9rem 0;
-      display: flex; justify-content: space-between; align-items: center; gap: 1rem;
-    }
-    .logo strong { display: block; font-size: 1.1rem; font-family: "Barlow Condensed", sans-serif; }
-    .logo span { color: var(--muted); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.06em; }
-    .nav-cta {
-      text-decoration: none;
-      color: var(--text);
-      border: 1px solid rgba(232, 160, 32, 0.9);
-      border-radius: 999px;
-      padding: 0.5rem 0.95rem;
-      font-size: 0.84rem;
-      transition: transform 220ms ease, background 220ms ease, color 220ms ease;
-    }
-    .nav-cta:hover { transform: translateY(-2px); background: var(--gold); color: #1d1302; }
+/* HERO */
+.hero{
+  background:var(--charcoal);
+  padding:140px 5% 100px;
+  position:relative;overflow:hidden;
+}
+.hero-texture{
+  position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.015'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events:none;
+}
+.hero-inner{
+  max-width:1100px;margin:0 auto;
+  position:relative;z-index:2;
+}
+.hero-loc{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:10px;font-weight:500;
+  letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:28px;
+  opacity:0;animation:fadeUp 0.6s ease forwards 0.1s;
+}
+.hero-loc::before{content:'';width:20px;height:1px;background:var(--gold)}
+h1{
+  font-size:clamp(40px,5.5vw,74px);
+  font-weight:600;line-height:1.08;
+  letter-spacing:-0.02em;
+  color:var(--white);
+  max-width:760px;
+  margin-bottom:28px;
+  opacity:0;animation:fadeUp 0.8s ease forwards 0.22s;
+}
+h1 em{
+  font-style:italic;font-weight:300;
+  color:var(--gold);
+}
+.hero-sub{
+  font-size:16px;font-weight:300;
+  color:rgba(255,255,255,0.6);
+  line-height:1.8;max-width:520px;
+  margin-bottom:44px;
+  opacity:0;animation:fadeUp 0.8s ease forwards 0.36s;
+}
+.hero-btns{
+  display:flex;gap:14px;align-items:center;flex-wrap:wrap;
+  opacity:0;animation:fadeUp 0.8s ease forwards 0.5s;
+}
+.btn-gold{
+  font-size:11px;font-weight:600;
+  letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--charcoal);background:var(--gold);
+  padding:14px 32px;text-decoration:none;
+  transition:all 0.2s;display:inline-block;
+}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-1px)}
+.btn-ghost{
+  font-size:11px;font-weight:400;
+  letter-spacing:0.12em;text-transform:uppercase;
+  color:rgba(255,255,255,0.6);
+  border:1px solid rgba(255,255,255,0.2);
+  padding:14px 32px;text-decoration:none;
+  transition:all 0.2s;display:inline-block;
+}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.5);color:var(--white)}
+.hero-tags{
+  display:flex;gap:8px;flex-wrap:wrap;margin-top:56px;
+  opacity:0;animation:fadeUp 0.8s ease forwards 0.64s;
+}
+.tag{
+  font-size:10px;font-weight:400;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:rgba(255,255,255,0.35);
+  border:1px solid rgba(255,255,255,0.12);
+  padding:7px 14px;
+}
 
-    .hero {
-      min-height: 100svh;
-      position: relative;
-      display: grid;
-      align-items: end;
-      isolation: isolate;
-      overflow: hidden;
-    }
-    .hero-grid {
-      position: absolute; inset: 0; z-index: -2;
-      background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
-      background-size: 48px 48px;
-      opacity: 0.2;
-    }
-    .hero-glow {
-      position: absolute; inset: -30% -10% auto -10%; height: 85%;
-      z-index: -3;
-      background: radial-gradient(circle at 36% 28%, rgba(232, 160, 32, 0.4), rgba(232, 160, 32, 0.1) 30%, transparent 58%);
-      filter: blur(28px);
-      animation: pulse 6s ease-in-out infinite alternate;
-    }
-    .hero-noise {
-      position: absolute; inset: 0; z-index: -1;
-      background: rgba(255, 255, 255, 0.08);
-      filter: url(#noiseFilter);
-      opacity: 0.17;
-      pointer-events: none;
-      mix-blend-mode: soft-light;
-    }
-    @keyframes pulse { from { transform: translateY(-2%) scale(1); } to { transform: translateY(2%) scale(1.05); } }
+/* TRUST STRIP */
+.trust{
+  background:var(--gold);
+  padding:0 5%;
+  display:flex;align-items:center;
+  overflow:hidden;
+}
+.trust-scroll{
+  display:flex;gap:0;white-space:nowrap;
+  animation:marquee 30s linear infinite;
+  padding:16px 0;
+}
+.trust-item{
+  font-size:10px;font-weight:600;
+  letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--charcoal);
+  padding:0 32px;
+  display:inline-flex;align-items:center;gap:32px;
+}
+.trust-item::after{
+  content:'✦';font-size:8px;opacity:0.5;
+}
+@keyframes marquee{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
 
-    .hero-inner {
-      width: min(calc(100% - 2rem), var(--maxw));
-      margin: 0 auto;
-      padding: clamp(5.4rem, 8vw, 7.5rem) 0 clamp(2rem, 4vw, 3rem);
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 1.2rem;
-      align-items: end;
-    }
-    .hero h1 { font-size: clamp(2.8rem, 8vw, 7.2rem); max-width: 10.2ch; overflow: hidden; }
-    .hero-line {
-      display: block;
-      transform: translateY(130%);
-      opacity: 0;
-      animation: rise 780ms cubic-bezier(0.2, 0.72, 0.2, 1) forwards;
-    }
-    .hero-line:nth-child(2) { animation-delay: 140ms; }
-    .hero-line:nth-child(3) { animation-delay: 300ms; }
-    @keyframes rise { to { transform: translateY(0); opacity: 1; } }
-    .hero-copy p { color: var(--muted); max-width: 58ch; margin-top: 1.2rem; font-size: 1.03rem; }
+/* ABOUT STRIP */
+.about-strip{
+  background:var(--cream2);
+  border-bottom:1px solid var(--border);
+  padding:64px 5%;
+}
+.about-inner{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 2fr;
+  gap:80px;align-items:center;
+}
+.ab-label{
+  font-size:10px;font-weight:600;
+  letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:14px;
+  display:flex;align-items:center;gap:8px;
+}
+.ab-label::before{content:'';width:18px;height:1px;background:var(--gold)}
+.ab-title{
+  font-size:clamp(26px,3.5vw,40px);
+  font-weight:600;color:var(--text);
+  line-height:1.15;letter-spacing:-0.01em;
+}
+.ab-title em{font-style:italic;font-weight:300;color:var(--gold)}
+.ab-body{
+  font-size:15px;font-weight:300;
+  color:var(--text2);line-height:1.85;
+}
+.ab-body p+p{margin-top:16px}
 
-    .hero-panel {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: linear-gradient(155deg, rgba(18, 24, 34, 0.95), rgba(12, 18, 28, 0.92));
-      padding: 1.25rem;
-      box-shadow: var(--shadow);
-    }
-    .hero-panel h3 { font-size: 1.5rem; margin-bottom: 0.45rem; }
-    .hero-panel p { color: var(--muted); }
+/* SERVICES */
+.services{
+  max-width:1100px;margin:0 auto;
+  padding:80px 5%;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:2px;border-bottom:1px solid var(--border);
+}
+.svc{
+  padding:52px 44px;
+  background:var(--cream);
+  border:1px solid var(--border);
+  position:relative;overflow:hidden;
+  opacity:0;transform:translateY(16px);
+  transition:all 0.55s ease;
+}
+.svc.vis{opacity:1;transform:translateY(0)}
+.svc:hover{background:var(--cream2)}
+.svc::before{
+  content:'';position:absolute;
+  top:0;left:0;bottom:0;width:3px;
+  background:var(--gold);
+  transform:scaleY(0);transform-origin:bottom;
+  transition:transform 0.35s ease;
+}
+.svc:hover::before{transform:scaleY(1)}
+.svc-num{
+  font-size:10px;font-weight:600;
+  letter-spacing:0.2em;color:var(--text3);
+  text-transform:uppercase;margin-bottom:20px;
+}
+.svc-title{
+  font-size:21px;font-weight:600;
+  color:var(--text);margin-bottom:14px;
+  line-height:1.2;
+}
+.svc-body{
+  font-size:14px;font-weight:300;
+  color:var(--text2);line-height:1.8;
+}
 
-    .trust {
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      background: #0d1118;
-      overflow: hidden;
-    }
-    .trust-track {
-      display: flex;
-      gap: 2.2rem;
-      min-width: 200%;
-      padding: 0.62rem 0;
-      white-space: nowrap;
-      animation: marquee 24s linear infinite;
-    }
-    .trust-item { color: #d2d7e3; font-size: 0.81rem; text-transform: uppercase; letter-spacing: 0.08em; display: inline-flex; align-items: center; gap: 0.45rem; }
-    .trust-icon { width: 14px; height: 14px; border: 1px solid rgba(232,160,32,0.6); border-radius: 50%; display: inline-block; position: relative; }
-    .trust-icon::after { content: ""; position: absolute; inset: 3px; background: var(--gold); border-radius: 50%; opacity: 0.9; }
-    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+/* PROCESS */
+.process{
+  background:var(--charcoal2);
+  border-top:1px solid rgba(255,255,255,0.06);
+}
+.process-inner{
+  max-width:1100px;margin:0 auto;padding:80px 5%;
+}
+.sec-label{
+  font-size:10px;font-weight:600;
+  letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:14px;
+  display:flex;align-items:center;gap:8px;
+}
+.sec-label::before{content:'';width:18px;height:1px;background:var(--gold)}
+.sec-title{
+  font-size:clamp(26px,3.5vw,42px);
+  font-weight:600;color:var(--white);
+  line-height:1.1;letter-spacing:-0.01em;
+  margin-bottom:52px;
+}
+.sec-title em{font-style:italic;font-weight:300;color:var(--gold)}
+.steps{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:2px;
+}
+.step{
+  padding:40px 30px;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.07);
+  opacity:0;transform:translateY(14px);
+  transition:all 0.5s ease;
+}
+.step.vis{opacity:1;transform:translateY(0)}
+.step:hover{background:rgba(255,255,255,0.06)}
+.step-n{
+  font-size:40px;font-weight:200;
+  color:rgba(255,255,255,0.12);
+  margin-bottom:18px;line-height:1;
+  font-style:italic;
+}
+.step-title{
+  font-size:12px;font-weight:600;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--white);margin-bottom:10px;
+}
+.step-body{
+  font-size:13px;font-weight:300;
+  color:rgba(255,255,255,0.5);line-height:1.75;
+}
 
-    section { padding: clamp(3.7rem, 6vw, 6.3rem) 0; }
-    .section-title { font-size: clamp(2.2rem, 5vw, 4rem); margin-bottom: 0.8rem; }
-    .intro { max-width: 64ch; color: var(--muted); margin-bottom: 1.8rem; }
+/* PACKAGES */
+.packages{
+  max-width:1100px;margin:0 auto;
+  padding:80px 5%;border-bottom:1px solid var(--border);
+}
+.pkg-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:16px;margin-top:52px;
+}
+.pkg{
+  background:var(--cream2);
+  border:1px solid var(--border);
+  padding:44px 36px;
+  position:relative;overflow:hidden;
+  opacity:0;transform:translateY(14px);
+  transition:opacity 0.5s ease,transform 0.5s ease,box-shadow 0.25s;
+}
+.pkg.vis{opacity:1;transform:translateY(0)}
+.pkg:hover{box-shadow:0 12px 48px rgba(30,30,30,0.1);background:var(--cream)}
+.pkg.feat{
+  background:var(--charcoal);
+  border-color:var(--charcoal);
+}
+.pkg.feat:hover{background:var(--charcoal2)}
+.pkg-top-bar{
+  height:3px;background:var(--border2);
+  margin-bottom:32px;position:relative;
+}
+.pkg.feat .pkg-top-bar{background:var(--gold)}
+.pkg-tier{
+  font-size:9px;font-weight:600;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--text3);margin-bottom:6px;
+}
+.pkg.feat .pkg-tier{color:rgba(255,255,255,0.4)}
+.pkg-name{
+  font-size:26px;font-weight:600;
+  color:var(--text);margin-bottom:24px;
+  letter-spacing:-0.01em;line-height:1.1;
+}
+.pkg.feat .pkg-name{color:var(--white)}
+.pkg-list{
+  list-style:none;display:flex;
+  flex-direction:column;gap:12px;margin-bottom:36px;
+}
+.pkg-list li{
+  font-size:13px;font-weight:300;
+  color:var(--text2);
+  display:flex;align-items:flex-start;gap:10px;line-height:1.5;
+}
+.pkg.feat .pkg-list li{color:rgba(255,255,255,0.6)}
+.pkg-list li::before{
+  content:'';width:14px;height:1px;
+  background:var(--gold);flex-shrink:0;margin-top:9px;
+}
+.pkg-cta{
+  display:block;text-align:center;padding:13px;
+  font-size:10px;font-weight:600;
+  letter-spacing:0.14em;text-transform:uppercase;
+  text-decoration:none;
+  border:1px solid var(--border2);
+  color:var(--text);transition:all 0.2s;
+}
+.pkg-cta:hover{background:var(--charcoal);color:var(--white);border-color:var(--charcoal)}
+.pkg.feat .pkg-cta{
+  background:var(--gold);border-color:var(--gold);color:var(--charcoal);
+}
+.pkg.feat .pkg-cta:hover{background:var(--gold2);border-color:var(--gold2)}
 
-    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-    .stat {
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: linear-gradient(160deg, rgba(255,255,255,0.03), rgba(19, 26, 38, 0.72));
-      padding: 1rem;
-      text-align: center;
-    }
-    .num { color: var(--gold); display: block; font-size: clamp(2.4rem, 4vw, 4.1rem); margin-bottom: 0.25rem; }
-    .stat p { color: var(--muted); font-size: 0.83rem; text-transform: uppercase; letter-spacing: 0.05em; }
+/* QUOTE */
+.quote-section{
+  background:var(--cream2);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:80px 5%;
+}
+.quote-inner{max-width:860px;margin:0 auto}
+.qm{
+  font-size:80px;font-weight:200;
+  color:var(--gold);line-height:0.8;
+  margin-bottom:8px;font-style:italic;
+}
+.qt{
+  font-size:clamp(18px,2.5vw,26px);
+  font-weight:300;font-style:italic;
+  color:var(--text);line-height:1.6;
+  margin-bottom:36px;
+}
+.qt strong{font-style:normal;font-weight:500}
+.qa{
+  display:flex;align-items:center;gap:20px;
+  padding-top:28px;border-top:1px solid var(--border);
+}
+.qa-line{flex:1;height:1px;background:var(--border)}
+.qa-name{
+  font-size:11px;font-weight:600;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--text);
+}
+.qa-role{font-size:11px;color:var(--text3);margin-top:2px}
 
-    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-    .why-card {
-      position: relative;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: var(--card);
-      padding: 1rem 1rem 1rem 1.15rem;
-      overflow: hidden;
-      transition: border-color 220ms ease, transform 220ms ease;
-    }
-    .why-card::before {
-      content: "";
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 0;
-      background: linear-gradient(to bottom, var(--gold), rgba(232,160,32,0.2));
-      transition: width 220ms ease;
-    }
-    .why-card:hover { border-color: rgba(232,160,32,0.45); transform: translateY(-4px); }
-    .why-card:hover::before { width: 4px; }
-    .why-card h3 { font-size: 1.35rem; margin-bottom: 0.3rem; }
-    .why-card p { color: var(--muted); font-size: 0.95rem; }
+/* CTA */
+.cta-section{
+  background:var(--charcoal);
+  padding:80px 5%;
+}
+.cta-inner{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:start;
+}
+.cta-body{
+  font-size:15px;font-weight:300;
+  color:rgba(255,255,255,0.55);
+  line-height:1.8;margin:18px 0 36px;
+}
+.cta-form{display:flex;flex-direction:column;gap:12px}
+.cta-input{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.12);
+  padding:13px 16px;font-size:13px;
+  color:var(--white);font-family:'Poppins',sans-serif;
+  outline:none;transition:border-color 0.2s;font-weight:300;
+}
+.cta-input::placeholder{color:rgba(255,255,255,0.3)}
+.cta-input:focus{border-color:var(--gold)}
+.cta-submit{
+  background:var(--gold);color:var(--charcoal);
+  border:none;padding:14px;
+  font-family:'Poppins',sans-serif;
+  font-size:11px;font-weight:600;
+  letter-spacing:0.14em;text-transform:uppercase;
+  cursor:pointer;transition:background 0.2s;
+}
+.cta-submit:hover{background:var(--gold2)}
+.cta-info{display:flex;flex-direction:column;gap:28px}
+.ci-item{display:flex;align-items:flex-start;gap:16px}
+.ci-icon{
+  width:38px;height:38px;
+  border:1px solid rgba(255,255,255,0.12);
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;flex-shrink:0;
+}
+.ci-label{
+  font-size:10px;font-weight:600;
+  letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:4px;
+}
+.ci-val{
+  font-size:14px;font-weight:300;
+  color:rgba(255,255,255,0.55);line-height:1.6;
+}
+.ci-val a{color:rgba(255,255,255,0.75);text-decoration:underline;text-underline-offset:3px}
 
-    .packages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-    .pkg {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: linear-gradient(155deg, #131a27, #0f141f);
-      padding: 1.3rem;
-      transition: transform 220ms ease, border-color 220ms ease;
-      position: relative;
-    }
-    .pkg:hover { transform: translateY(-6px); border-color: rgba(232,160,32,0.5); }
-    .pkg.featured {
-      border-color: rgba(232, 160, 32, 0.72);
-      box-shadow: 0 0 0 1px rgba(232,160,32,0.25), 0 28px 60px rgba(0,0,0,0.45);
-      transform: translateY(-8px);
-      background: linear-gradient(155deg, #181f2d, #121926);
-    }
-    .pkg-badge {
-      display: inline-block;
-      background: var(--gold);
-      color: #1f1502;
-      padding: 0.16rem 0.58rem;
-      border-radius: 999px;
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: 0.8rem;
-    }
-    .pkg h3 { font-size: 1.8rem; margin-bottom: 0.45rem; }
-    .pkg p { color: var(--muted); margin-bottom: 0.6rem; }
-    .pkg ul { list-style: none; display: grid; gap: 0.35rem; color: #d4dae7; }
-    .pkg li::before { content: "- "; color: var(--gold); }
+/* FOOTER */
+footer{
+  background:var(--charcoal2);
+  border-top:1px solid rgba(255,255,255,0.07);
+  padding:32px 5%;
+  display:flex;align-items:center;
+  justify-content:space-between;flex-wrap:wrap;gap:12px;
+}
+.foot-logo{font-size:14px;font-weight:500;letter-spacing:0.08em;color:rgba(255,255,255,0.6);text-decoration:none}
+.foot-links{display:flex;gap:24px}
+.foot-link{
+  font-size:10px;font-weight:400;
+  letter-spacing:0.12em;text-transform:uppercase;
+  color:rgba(255,255,255,0.35);
+  text-decoration:none;transition:color 0.2s;
+}
+.foot-link:hover{color:rgba(255,255,255,0.7)}
+.foot-copy{font-size:11px;color:rgba(255,255,255,0.25);letter-spacing:0.04em}
 
-    .testimonial {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-      padding: clamp(1.3rem, 3vw, 2.2rem);
-      position: relative;
-      overflow: hidden;
-    }
-    .quote-mark {
-      position: absolute;
-      top: -18px;
-      left: 12px;
-      color: rgba(232, 160, 32, 0.25);
-      font-size: clamp(6rem, 9vw, 10rem);
-      line-height: 1;
-      font-family: "Barlow Condensed", sans-serif;
-    }
-    .testimonial blockquote { position: relative; z-index: 1; font-size: 1.14rem; max-width: 74ch; }
-    .testimonial p { margin-top: 1rem; color: var(--muted); position: relative; z-index: 1; }
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(22px)}
+  to{opacity:1;transform:translateY(0)}
+}
 
-    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-    .step {
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 1rem;
-      background: rgba(255,255,255,0.015);
-    }
-    .step-index { color: var(--gold); font-size: 2rem; display: inline-block; margin-bottom: 0.3rem; }
-    .step h3 { font-size: 1.3rem; margin-bottom: 0.35rem; }
-    .step p { color: var(--muted); font-size: 0.95rem; }
-
-    .cta-wrap {
-      position: relative;
-      background: linear-gradient(160deg, #0f141e, #0b1018);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-    .cta-wrap::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(650px 300px at 70% 40%, rgba(232,160,32,0.22), transparent 58%);
-      pointer-events: none;
-    }
-    .cta-inner {
-      width: min(calc(100% - 2rem), var(--maxw));
-      margin: 0 auto;
-      padding: clamp(3rem, 6vw, 5rem) 0;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: 1rem;
-      position: relative;
-      z-index: 1;
-    }
-    .cta-inner h2 { font-size: clamp(2.2rem, 5vw, 4.2rem); margin-bottom: 0.4rem; }
-    .cta-inner p { color: var(--muted); max-width: 58ch; }
-    .cta-form { display: flex; flex-wrap: wrap; gap: 0.55rem; justify-content: flex-end; }
-    .cta-form input {
-      min-width: 240px;
-      border: 1px solid var(--line);
-      border-radius: 11px;
-      padding: 0.82rem 0.9rem;
-      background: rgba(6, 10, 15, 0.9);
-      color: var(--text);
-      font: inherit;
-      outline: none;
-    }
-    .cta-form input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(232,160,32,0.2); }
-    .cta-form button {
-      border: 0;
-      border-radius: 11px;
-      background: var(--gold);
-      color: #1d1403;
-      padding: 0.82rem 1.1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      font-family: "Barlow Condensed", sans-serif;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-
-    .foot { text-align: center; color: var(--muted); font-size: 0.83rem; padding: 1rem 0 2rem; }
-
-    @media (max-width: 1020px) {
-      .hero-inner, .cta-inner { grid-template-columns: 1fr; }
-      .stats { grid-template-columns: repeat(2, 1fr); }
-      .why-grid, .steps { grid-template-columns: repeat(2, 1fr); }
-      .packages { grid-template-columns: 1fr; }
-      .pkg.featured { transform: none; }
-      .cta-form { justify-content: flex-start; }
-    }
-    @media (max-width: 640px) {
-      .stats, .why-grid, .steps { grid-template-columns: 1fr; }
-      .container, .hero-inner, .nav-inner, .cta-inner { width: min(calc(100% - 1.1rem), var(--maxw)); }
-      .nav-cta { display: none; }
-      .cta-form input, .cta-form button { width: 100%; }
-    }
-  </style>
+@media(max-width:900px){
+  .about-inner{grid-template-columns:1fr;gap:32px}
+  .services{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr;gap:2px}
+  .pkg-grid{grid-template-columns:1fr}
+  .cta-inner{grid-template-columns:1fr;gap:48px}
+  .nav-links{display:none}
+}
+@media(max-width:600px){
+  h1{font-size:36px}
+  nav{padding:0 5%}
+  .hero{padding:110px 5% 70px}
+  .svc{padding:36px 24px}
+  .step{padding:32px 22px}
+}
+</style>
 </head>
 <body>
-  <svg width="0" height="0" aria-hidden="true" focusable="false">
-    <filter id="noiseFilter">
-      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"></feTurbulence>
-      <feColorMatrix type="saturate" values="0"></feColorMatrix>
-    </filter>
-  </svg>
 
-  <header class="nav">
-    <div class="nav-inner">
-      <div class="logo">
-        <strong>Nathan Bingle Photography</strong>
-        <span>Fort Mill, SC School & Sports Photography</span>
-      </div>
-      <a class="nav-cta" href="#proposal">Request Proposal</a>
+<nav>
+  <a href="https://nathanbinglephotography.com" class="nav-logo" style="font-family:'Poppins',sans-serif;font-size:15px;font-weight:500;letter-spacing:0.08em;color:#1e1e1e;text-decoration:none;">Nathan Bingle Photography</a>
+  <div class="nav-links">
+    <a href="https://nathanbinglephotography.com/services/sports" class="nav-link">Sports</a>
+    <a href="https://nathanbinglephotography.com/services/school-portraits" class="nav-link">Schools</a>
+    <a href="https://nathanbinglephotography.com/about" class="nav-link">About</a>
+  </div>
+  <a href="#contact" class="nav-cta">Get in Touch</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-texture"></div>
+  <div class="hero-inner">
+    <div class="hero-loc">Fort Mill, SC</div>
+    <h1>School &amp; Sports Photography<br>for <em>Pleasant Knoll Middle School</em></h1>
+    <p class="hero-sub">Streamlined, high-volume photography for schools and leagues across the Charlotte area. Organized, efficient, and stress-free — for administrators, staff, and families.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-gold">Request Pricing</a>
+      <a href="#packages" class="btn-ghost">View Packages</a>
     </div>
-  </header>
+    <div class="hero-tags">
+      <span class="tag">School Picture Days</span>
+      <span class="tag">Sports Team Photos</span>
+      <span class="tag">Media Day Packages</span>
+      <span class="tag">Fort Mill SD</span>
+    </div>
+  </div>
+</section>
 
-  <main>
-    <section class="hero">
-      <div class="hero-glow"></div>
-      <div class="hero-grid"></div>
-      <div class="hero-noise"></div>
-      <div class="hero-inner">
-        <div class="hero-copy">
-          <span class="eyebrow">Pleasant Knoll Middle School | Fort Mill SD</span>
-          <h1>
-            <span class="hero-line">Picture Day</span>
-            <span class="hero-line">Without</span>
-            <span class="hero-line">the Chaos</span>
-          </h1>
-          <p>
-            Nathan Bingle Photography delivers high-end portrait programs for Pleasant Knoll Middle School
-            in Fort Mill, SC, engineered for smooth logistics, stronger participation, and
-            measurable school revenue results.
-          </p>
-        </div>
-        <aside class="hero-panel reveal">
-          <h3>Fort Mill SD Program Snapshot</h3>
-          <p>Zero chaos on picture day, 90%+ participation rates, 48hr turnaround, and a transparent revenue share model built for school leaders.</p>
-        </aside>
+<div class="trust">
+  <div class="trust-scroll">
+    <span class="trust-item">School Picture Days</span>
+    <span class="trust-item">Youth Sports Photography</span>
+    <span class="trust-item">Media Day Packages</span>
+    <span class="trust-item">Fort Mill · Rock Hill · Charlotte</span>
+    <span class="trust-item">Revenue Share Model</span>
+    <span class="trust-item">Zero Admin Burden</span>
+    <span class="trust-item">Fast Turnaround</span>
+    <span class="trust-item">School Picture Days</span>
+    <span class="trust-item">Youth Sports Photography</span>
+    <span class="trust-item">Media Day Packages</span>
+    <span class="trust-item">Fort Mill · Rock Hill · Charlotte</span>
+    <span class="trust-item">Revenue Share Model</span>
+    <span class="trust-item">Zero Admin Burden</span>
+    <span class="trust-item">Fast Turnaround</span>
+  </div>
+</div>
+
+<section class="about-strip">
+  <div class="about-inner">
+    <div>
+      <div class="ab-label">Who We Are</div>
+      <h2 class="ab-title">High-Volume Photography<br><em>Without the Headaches</em></h2>
+    </div>
+    <div class="ab-body">
+      <p>We help schools and leagues across the Charlotte area run smooth, organized photo days with zero admin stress and happy parents. Our process is built to keep picture day efficient and stress-free for administrators and staff.</p>
+      <p>We handle <strong>everything</strong> — from setup and photography to parent communication, ordering, and support — so your team doesn't have to. No order forms. No cash handling. No follow-ups. Parents receive a private online gallery where they only purchase the photos they love.</p>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="svc">
+    <div class="svc-num">01</div>
+    <div class="svc-title">School Portrait Photography</div>
+    <p class="svc-body">Streamlined, high-volume portrait sessions for K–12 campuses. Digital images are available immediately, and prints are produced locally and shipped directly to families within a few business days.<br><br>The result: smooth photo days, happy parents, and zero administrative burden for your school.</p>
+  </div>
+  <div class="svc">
+    <div class="svc-num">02</div>
+    <div class="svc-title">Youth Sports &amp; League Photography</div>
+    <p class="svc-body">Efficient team and individual portraits for leagues and organizations of all sizes. Designed for fast throughput, clean logistics, and strong parent participation.<br><br>Every athlete gets the same professional treatment. Consistent lighting, clean backgrounds, and a workflow that doesn't eat up practice time.</p>
+  </div>
+</section>
+
+<section class="process">
+  <div class="process-inner">
+    <div class="sec-label">How It Works</div>
+    <h2 class="sec-title">Smooth Photo Days, <em>Every Time</em></h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">01</div>
+        <div class="step-title">Book a Date</div>
+        <p class="step-body">Reach out and we'll lock in a date that works for your schedule. Quick response on availability.</p>
       </div>
-    </section>
-
-    <div class="trust">
-      <div class="trust-track">
-        <span class="trust-item"><span class="trust-icon"></span>Fort Mill Based Team</span>
-        <span class="trust-item"><span class="trust-icon"></span>90%+ Participation Strategies</span>
-        <span class="trust-item"><span class="trust-icon"></span>48 Hour Turnaround</span>
-        <span class="trust-item"><span class="trust-icon"></span>Revenue Share Transparency</span>
-        <span class="trust-item"><span class="trust-icon"></span>District Ready Workflow</span>
-        <span class="trust-item"><span class="trust-icon"></span>Fort Mill Based Team</span>
-        <span class="trust-item"><span class="trust-icon"></span>90%+ Participation Strategies</span>
-        <span class="trust-item"><span class="trust-icon"></span>48 Hour Turnaround</span>
+      <div class="step">
+        <div class="step-n">02</div>
+        <div class="step-title">We Handle Setup</div>
+        <p class="step-body">Parent communication, ordering system, equipment — we arrive fully prepared. Your staff does nothing extra.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">03</div>
+        <div class="step-title">Photo Day</div>
+        <p class="step-body">Fast, organized, professional. We move through students without disrupting your school or league schedule.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">04</div>
+        <div class="step-title">Galleries Delivered</div>
+        <p class="step-body">Private online galleries delivered quickly. Digital available immediately. Prints shipped directly to families.</p>
       </div>
     </div>
+  </div>
+</section>
 
-    <section class="reveal">
-      <div class="container">
-        <span class="eyebrow">Performance Metrics</span>
-        <h2 class="section-title">Numbers That Earn Trust</h2>
-        <p class="intro">Every program is built to reduce admin burden, drive parent engagement, and improve school-wide outcomes.</p>
-        <div class="stats">
-          <article class="stat"><span class="num" data-count="90" data-suffix="%">0%</span><p>Participation Rate</p></article>
-          <article class="stat"><span class="num" data-count="48" data-suffix="hr">0hr</span><p>Turnaround</p></article>
-          <article class="stat"><span class="num" data-count="0">0</span><p>Picture Day Chaos</p></article>
-          <article class="stat"><span class="num" data-count="100" data-suffix="%">0%</span><p>Revenue Clarity</p></article>
-        </div>
+<section class="packages" id="packages">
+  <div class="sec-label" style="color:var(--gold)">Media Day Packages</div>
+  <h2 style="font-size:clamp(26px,3.5vw,42px);font-weight:600;color:var(--text);line-height:1.1;letter-spacing:-0.01em">Choose Your <em style="font-style:italic;font-weight:300;color:var(--gold)">Program Level</em></h2>
+  <div class="pkg-grid">
+    <div class="pkg">
+      <div class="pkg-top-bar"></div>
+      <div class="pkg-tier">Starter</div>
+      <div class="pkg-name">Essential</div>
+      <ul class="pkg-list">
+        <li>Individual athlete portraits</li>
+        <li>Team photo</li>
+        <li>Standard backgrounds</li>
+        <li>Private online galleries</li>
+        <li>Digital delivery included</li>
+        <li>Revenue share model</li>
+      </ul>
+      <a href="#contact" class="pkg-cta">Get Started</a>
+    </div>
+    <div class="pkg feat">
+      <div class="pkg-top-bar"></div>
+      <div class="pkg-tier">Premier · Most Popular</div>
+      <div class="pkg-name">Full Program</div>
+      <ul class="pkg-list">
+        <li>Everything in Starter</li>
+        <li>Action shots &amp; candids</li>
+        <li>Custom banner &amp; signage</li>
+        <li>Sponsor placement options</li>
+        <li>Priority scheduling</li>
+        <li>Enhanced revenue share</li>
+      </ul>
+      <a href="#contact" class="pkg-cta">Choose Premier</a>
+    </div>
+    <div class="pkg">
+      <div class="pkg-top-bar"></div>
+      <div class="pkg-tier">Program Partner</div>
+      <div class="pkg-name">Full Partner</div>
+      <ul class="pkg-list">
+        <li>Everything in Premier</li>
+        <li>Multi-sport / full school coverage</li>
+        <li>Dedicated account manager</li>
+        <li>Custom branded products</li>
+        <li>Marketing assets for your program</li>
+        <li>Maximum revenue share</li>
+      </ul>
+      <a href="#contact" class="pkg-cta">Partner With Us</a>
+    </div>
+  </div>
+</section>
+
+<section class="quote-section">
+  <div class="quote-inner">
+    <div class="qm">"</div>
+    <p class="qt">Nathan's team made our picture day the <strong>smoothest we've ever had.</strong> Parents were happy, staff wasn't stressed, and the photos arrived fast. We'll be booking again next year.</p>
+    <div class="qa">
+      <div class="qa-line"></div>
+      <div>
+        <div class="qa-name">Athletic Director</div>
+        <div class="qa-role">Fort Mill School District</div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <section class="reveal">
-      <div class="container">
-        <span class="eyebrow">Why Nathan Bingle Photography</span>
-        <h2 class="section-title">Built Like A True School Partner</h2>
-        <p class="intro">Operational excellence, local support, and premium image quality designed for modern schools and sports programs.</p>
-        <div class="why-grid">
-          <article class="why-card reveal"><h3>Zero Chaos Logistics</h3><p>Flow planning and staffing that keep lines moving and campuses calm.</p></article>
-          <article class="why-card reveal"><h3>Family-First Experience</h3><p>Clear communication, intuitive ordering, and support families appreciate.</p></article>
-          <article class="why-card reveal"><h3>High Participation Model</h3><p>Proven systems that regularly drive participation beyond 90%.</p></article>
-          <article class="why-card reveal"><h3>Premium Portrait Quality</h3><p>Cinematic color, consistent lighting, and polished post-processing.</p></article>
-          <article class="why-card reveal"><h3>48hr Delivery</h3><p>Fast turnaround without sacrificing consistency or image standards.</p></article>
-          <article class="why-card reveal"><h3>Revenue Share Alignment</h3><p>Transparent reporting and a model that supports school fundraising goals.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="reveal">
-      <div class="container">
-        <span class="eyebrow">Program Options</span>
-        <h2 class="section-title">Packages For Pleasant Knoll Middle School</h2>
-        <p class="intro">Choose the engagement level that best matches your school goals and timeline.</p>
-        <div class="packages">
-          <article class="pkg reveal">
-            <span class="pkg-badge">Starter</span>
-            <h3>Starter</h3>
-            <p>A clean professional upgrade with smooth execution.</p>
-            <ul>
-              <li>Picture day logistics mapping</li>
-              <li>Family ordering portal</li>
-              <li>Core portrait delivery</li>
-              <li>School admin support</li>
-            </ul>
-          </article>
-          <article class="pkg featured reveal">
-            <span class="pkg-badge">Most Popular</span>
-            <h3>Premier</h3>
-            <p>High-performance package for participation and parent satisfaction.</p>
-            <ul>
-              <li>90%+ participation framework</li>
-              <li>48hr gallery launch</li>
-              <li>Retake optimization process</li>
-              <li>Dedicated on-site lead</li>
-            </ul>
-          </article>
-          <article class="pkg reveal">
-            <span class="pkg-badge">Program Partner</span>
-            <h3>Program Partner</h3>
-            <p>Long-term alignment with transparent reporting and growth planning.</p>
-            <ul>
-              <li>Custom revenue share model</li>
-              <li>District-ready communication kit</li>
-              <li>Multi-event strategy support</li>
-              <li>Quarterly performance reviews</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="reveal">
-      <div class="container">
-        <span class="eyebrow">What Leaders Say</span>
-        <h2 class="section-title">Trusted Across Fort Mill, SC</h2>
-        <article class="testimonial">
-          <div class="quote-mark">"</div>
-          <blockquote>
-            Nathan Bingle Photography transformed our picture day experience. Operations were smooth, staff stress dropped, and families responded with overwhelmingly positive feedback. This is the first time picture day felt premium and predictable.
-          </blockquote>
-          <p>Operations Administrator, Fort Mill SD</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="reveal">
-      <div class="container">
-        <span class="eyebrow">Execution System</span>
-        <h2 class="section-title">4 Steps To Flawless Delivery</h2>
-        <div class="steps">
-          <article class="step reveal"><span class="step-index">01</span><h3>Plan</h3><p>Align calendar, traffic flow, and program goals before day one.</p></article>
-          <article class="step reveal"><span class="step-index">02</span><h3>Prepare</h3><p>Schools and families receive clear communication and schedule guidance.</p></article>
-          <article class="step reveal"><span class="step-index">03</span><h3>Photograph</h3><p>Stationed team keeps throughput high while preserving portrait quality.</p></article>
-          <article class="step reveal"><span class="step-index">04</span><h3>Deliver</h3><p>Galleries launch fast with reporting and transparent program outcomes.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta-wrap reveal" id="proposal">
-      <div class="cta-inner">
+<section class="cta-section" id="contact">
+  <div class="cta-inner">
+    <div>
+      <div class="sec-label">Get in Touch</div>
+      <h2 style="font-size:clamp(26px,3.5vw,42px);font-weight:600;color:var(--white);line-height:1.1;letter-spacing:-0.01em">Ready to Start <em style="font-style:italic;font-weight:300;color:var(--gold)">Planning?</em></h2>
+      <p class="cta-body">Have questions or need details about pricing and availability for Pleasant Knoll Middle School? We respond quickly and can usually get you a quote within one business day.</p>
+      <form class="cta-form" onsubmit="handleSubmit(event)">
+        <input type="text" class="cta-input" placeholder="Your name" required>
+        <input type="email" class="cta-input" placeholder="Email address" required id="ei">
+        <input type="text" class="cta-input" placeholder="School or organization name">
+        <button type="submit" class="cta-submit">Send Message</button>
+      </form>
+    </div>
+    <div class="cta-info">
+      <div class="ci-item">
+        <div class="ci-icon">✉</div>
         <div>
-          <span class="eyebrow">Launch Your Next Picture Day</span>
-          <h2>Get A Pleasant Knoll Middle School Proposal</h2>
-          <p>Share your school email and get a custom plan with package options, timeline recommendations, and revenue-share guidance.</p>
+          <div class="ci-label">Response Time</div>
+          <div class="ci-val">We typically respond within one business day.</div>
         </div>
-        <form class="cta-form" action="#" method="post">
-          <input type="email" name="email" placeholder="Your school email" required />
-          <button type="submit">Request Proposal</button>
-        </form>
       </div>
-    </section>
-  </main>
+      <div class="ci-item">
+        <div class="ci-icon">📍</div>
+        <div>
+          <div class="ci-label">Service Area</div>
+          <div class="ci-val">Fort Mill, Rock Hill, Charlotte, and surrounding areas across the Carolinas.</div>
+        </div>
+      </div>
+      <div class="ci-item">
+        <div class="ci-icon">📅</div>
+        <div>
+          <div class="ci-label">Scheduling</div>
+          <div class="ci-val">Dates fill quickly. We recommend reaching out 4–6 weeks in advance.</div>
+        </div>
+      </div>
+      <div class="ci-item">
+        <div class="ci-icon">🌐</div>
+        <div>
+          <div class="ci-label">Main Website</div>
+          <div class="ci-val"><a href="https://nathanbinglephotography.com">nathanbinglephotography.com</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <p class="foot">Serving Pleasant Knoll Middle School | Fort Mill, SC | Fort Mill SD</p>
+<footer>
+  <a href="https://nathanbinglephotography.com" class="foot-logo">Nathan Bingle Photography</a>
+  <div class="foot-links">
+    <a href="https://nathanbinglephotography.com/services/sports" class="foot-link">Sports</a>
+    <a href="https://nathanbinglephotography.com/services/school-portraits" class="foot-link">Schools</a>
+    <a href="https://nathanbinglephotography.com/contact" class="foot-link">Contact</a>
+  </div>
+  <div class="foot-copy">© 2026 Nathan Bingle Photography · Fort Mill, SC</div>
+</footer>
 
-  <script>
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.14 });
-    document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) setTimeout(() => e.target.classList.add('vis'), i * 60);
+  });
+}, {threshold: 0.1});
+document.querySelectorAll('.svc, .step, .pkg').forEach(el => obs.observe(el));
+document.querySelectorAll('.step').forEach((el, i) => el.style.transitionDelay = i * 0.07 + 's');
+document.querySelectorAll('.pkg').forEach((el, i) => el.style.transitionDelay = i * 0.08 + 's');
+document.querySelectorAll('.svc').forEach((el, i) => el.style.transitionDelay = i * 0.08 + 's');
 
-    const counterObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const el = entry.target;
-        if (el.dataset.done === "1") return;
-        el.dataset.done = "1";
-
-        const target = Number(el.dataset.count || "0");
-        const suffix = el.dataset.suffix || "";
-        const start = performance.now();
-        const duration = 1300;
-
-        const tick = (now) => {
-          const t = Math.min((now - start) / duration, 1);
-          const eased = 1 - Math.pow(1 - t, 3);
-          const value = Math.floor(target * eased);
-          el.textContent = value + suffix;
-          if (t < 1) requestAnimationFrame(tick);
-          else el.textContent = target + suffix;
-        };
-        requestAnimationFrame(tick);
-        counterObserver.unobserve(el);
-      });
-    }, { threshold: 0.52 });
-    document.querySelectorAll(".num").forEach((el) => counterObserver.observe(el));
-  </script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.cta-submit');
+  btn.textContent = 'Message Sent';
+  btn.style.background = '#2a7a4a';
+  setTimeout(() => { btn.textContent = 'Send Message'; btn.style.background = ''; }, 3000);
+}
+</script>
 </body>
 </html>
