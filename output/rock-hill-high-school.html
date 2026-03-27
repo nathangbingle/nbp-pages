@@ -11,198 +11,525 @@
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
   <style>
-    :root { --bg:#090e16; --bg-elev:#101826; --text:#edf2ff; --muted:#9eabc5; --gold:#e8a020; --line:rgba(255,255,255,.12); --radius:18px; --maxw:1240px; }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    html, body { width:100%; min-height:100%; background:radial-gradient(1200px 680px at 20% -12%, #273654 0, transparent 52%), radial-gradient(900px 480px at 88% -20%, #2f220f 0, transparent 45%), var(--bg); color:var(--text); font-family:"DM Sans",system-ui,-apple-system,sans-serif; overflow-x:hidden; scroll-behavior:smooth; }
-    .container { width:min(calc(100% - 2rem), var(--maxw)); margin:0 auto; }
-    h1,h2,h3,.eyebrow,.num { font-family:"Barlow Condensed", Impact, sans-serif; letter-spacing:.03em; text-transform:uppercase; line-height:1; }
-    .eyebrow { color:var(--gold); font-size:.9rem; font-weight:700; margin-bottom:.85rem; display:inline-block; }
-    .topbar { position:fixed; top:0; left:0; right:0; z-index:50; background:linear-gradient(to bottom, rgba(9,14,22,.88), rgba(9,14,22,.3)); border-bottom:1px solid rgba(255,255,255,.06); backdrop-filter:blur(6px); }
-    .topbar-inner { width:min(calc(100% - 2rem), var(--maxw)); margin:0 auto; padding:.85rem 0; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
-    .brand strong { display:block; font-family:"Barlow Condensed",sans-serif; letter-spacing:.04em; font-size:1.15rem; }
-    .brand small { color:var(--muted); text-transform:uppercase; letter-spacing:.05em; font-size:.74rem; }
-    .pill-btn { color:var(--text); text-decoration:none; border:1px solid rgba(232,160,32,.8); border-radius:999px; padding:.5rem .95rem; font-size:.84rem; }
-    .hero { min-height:100svh; display:grid; align-items:end; position:relative; border-bottom:1px solid var(--line); isolation:isolate; overflow:hidden; }
-    .hero::before { content:""; position:absolute; inset:-25% -25%; z-index:-2; background:radial-gradient(circle at 20% 30%, rgba(232,160,32,.2) 0, transparent 28%), radial-gradient(circle at 80% 28%, rgba(103,142,255,.2) 0, transparent 24%), radial-gradient(circle at 52% 76%, rgba(66,81,116,.32) 0, transparent 30%); filter:blur(24px); animation:spin 28s linear infinite; transform-origin:center; }
-    .hero::after { content:""; position:absolute; inset:0; z-index:-1; background-image:linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px); background-size:42px 42px; opacity:.16; }
-    @keyframes spin { from{transform:rotate(0) scale(1)} 50%{transform:rotate(180deg) scale(1.05)} to{transform:rotate(360deg) scale(1)} }
-    .hero-inner { width:min(calc(100% - 2rem), var(--maxw)); margin:0 auto; padding:clamp(5.2rem,9vw,7.4rem) 0 clamp(2.1rem,5vw,3.2rem); display:grid; gap:1.2rem 1.5rem; grid-template-columns:1.2fr .8fr; align-items:end; }
-    .hero-copy h1 { font-size:clamp(2.4rem,7vw,6.6rem); line-height:.91; max-width:10.5ch; overflow:hidden; }
-    .line { display:block; transform:translateY(120%); opacity:0; animation:up .88s cubic-bezier(.22,.7,.16,1) forwards; }
-    .line:nth-child(2){animation-delay:.18s} .line:nth-child(3){animation-delay:.34s}
-    @keyframes up { to { transform:translateY(0); opacity:1; } }
-    .hero-copy p { color:var(--muted); max-width:56ch; margin-top:1.2rem; font-size:1.04rem; }
-    .hero-card { border:1px solid var(--line); border-radius:var(--radius); background:linear-gradient(160deg, rgba(16,24,38,.88), rgba(18,29,44,.88)); padding:1.1rem; box-shadow:0 30px 60px rgba(0,0,0,.45); }
-    section { padding:clamp(3.5rem,6vw,6.2rem) 0; }
-    .section-title { font-size:clamp(2rem,5vw,3.5rem); margin-bottom:.85rem; }
-    .section-intro { color:var(--muted); max-width:62ch; margin-bottom:1.8rem; }
-    .fade { opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease; }
-    .fade.show { opacity:1; transform:translateY(0); }
-    .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
-    .stat { border:1px solid var(--line); background:linear-gradient(160deg, rgba(255,255,255,.02), rgba(15,22,34,.65)); border-radius:14px; padding:1rem 1rem 1.1rem; text-align:center; }
-    .num { display:block; color:var(--gold); font-size:clamp(2.1rem,4vw,3.6rem); margin-bottom:.3rem; }
-    .label { color:var(--muted); text-transform:uppercase; letter-spacing:.05em; font-size:.82rem; }
-    .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
-    .card { border:1px solid var(--line); border-radius:var(--radius); background:linear-gradient(160deg, #131d2d 0%, #0f1725 100%); padding:1.35rem; transition:transform .24s ease, border-color .24s ease; }
-    .card:hover { transform:translateY(-7px); border-color:rgba(232,160,32,.45); }
-    .chip { display:inline-block; font-size:.71rem; text-transform:uppercase; letter-spacing:.07em; padding:.17rem .55rem; border-radius:999px; color:#1f1506; background:var(--gold); margin-bottom:.75rem; font-weight:700; }
-    .card h3 { font-size:1.78rem; margin-bottom:.55rem; }
-    .card p { color:var(--muted); margin-bottom:.65rem; }
-    .card ul { list-style:none; display:grid; gap:.4rem; color:#c0c9de; font-size:.94rem; }
-    .card li::before { content:"•"; color:var(--gold); margin-right:.45rem; }
-    .steps { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
-    .step { border:1px solid var(--line); background:rgba(255,255,255,.015); border-radius:14px; padding:1.1rem; }
-    .step .index { color:var(--gold); font-family:"Barlow Condensed",sans-serif; font-size:2rem; margin-bottom:.35rem; display:inline-block; }
-    .step h3 { font-size:1.33rem; margin-bottom:.4rem; }
-    .step p { color:var(--muted); font-size:.95rem; }
-    .testimonials { display:grid; grid-template-columns:1.12fr .88fr; gap:1rem; }
-    .quote,.proof { border:1px solid var(--line); border-radius:var(--radius); padding:clamp(1.2rem,2.7vw,1.9rem); background:linear-gradient(145deg, rgba(255,255,255,.022), rgba(255,255,255,.008)); }
-    .quote .mark { color:var(--gold); font-size:3rem; line-height:.7; font-family:"Barlow Condensed",sans-serif; }
-    blockquote { margin-top:.6rem; font-size:1.08rem; max-width:58ch; }
-    .author { margin-top:1rem; color:var(--muted); font-size:.92rem; }
-    .proof h3 { font-size:1.46rem; margin-bottom:.45rem; }
-    .proof p { color:var(--muted); }
-    .cta-wrap { padding-bottom:clamp(4rem,8vw,6rem); }
-    .cta { border:1px solid rgba(232,160,32,.45); border-radius:calc(var(--radius) + 1px); background:linear-gradient(160deg, rgba(20,31,48,.95), rgba(13,21,33,.98)); box-shadow:0 24px 60px rgba(0,0,0,.38); padding:clamp(1.25rem,4vw,2.3rem); display:grid; grid-template-columns:1fr auto; gap:1.1rem; align-items:center; }
-    .cta h2 { font-size:clamp(2rem,5vw,3.2rem); margin-bottom:.45rem; }
-    .cta p { color:var(--muted); max-width:56ch; }
-    .form { display:flex; gap:.6rem; flex-wrap:wrap; justify-content:flex-end; align-items:center; }
-    .form input { min-width:235px; padding:.82rem .95rem; border-radius:11px; border:1px solid var(--line); background:rgba(7,11,17,.92); color:var(--text); font:inherit; outline:none; }
-    .form button { border:0; border-radius:11px; background:var(--gold); color:#1a1305; font-family:"Barlow Condensed",sans-serif; text-transform:uppercase; letter-spacing:.04em; font-size:1rem; padding:.82rem 1.15rem; cursor:pointer; }
-    .foot { text-align:center; color:var(--muted); font-size:.84rem; padding:1rem 0 2rem; }
-    @media (max-width:1020px){ .hero-inner,.testimonials,.cta{grid-template-columns:1fr} .stats{grid-template-columns:repeat(2,1fr)} .cards,.steps{grid-template-columns:repeat(2,1fr)} .form{justify-content:flex-start} }
-    @media (max-width:640px){ .stats,.cards,.steps{grid-template-columns:1fr} .hero-copy h1{max-width:100%} .topbar-inner,.hero-inner,.container{width:min(calc(100% - 1.2rem), var(--maxw))} .pill-btn{display:none} .form input,.form button{width:100%} }
+    :root {
+      --bg: #0a0c10;
+      --bg-alt: #10141d;
+      --card: #111722;
+      --text: #f2f4f8;
+      --muted: #aab1c3;
+      --gold: #e8a020;
+      --line: rgba(255, 255, 255, 0.12);
+      --radius: 18px;
+      --maxw: 1220px;
+      --shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { width: 100%; min-height: 100%; overflow-x: hidden; }
+    body {
+      background: radial-gradient(1000px 600px at 12% -8%, rgba(232, 160, 32, 0.17), transparent 50%), var(--bg);
+      color: var(--text);
+      font-family: "DM Sans", system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    .container { width: min(calc(100% - 2rem), var(--maxw)); margin: 0 auto; }
+    h1, h2, h3, .eyebrow, .num, .step-index { font-family: "Barlow Condensed", Impact, sans-serif; text-transform: uppercase; line-height: 0.95; letter-spacing: 0.03em; }
+    .eyebrow { color: var(--gold); display: inline-block; margin-bottom: 0.8rem; font-size: 0.88rem; }
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity 750ms ease, transform 750ms ease; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 60;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      background: linear-gradient(to bottom, rgba(10, 12, 16, 0.9), rgba(10, 12, 16, 0.45));
+      backdrop-filter: blur(8px);
+    }
+    .nav-inner {
+      width: min(calc(100% - 2rem), var(--maxw));
+      margin: 0 auto;
+      padding: 0.9rem 0;
+      display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+    }
+    .logo strong { display: block; font-size: 1.1rem; font-family: "Barlow Condensed", sans-serif; }
+    .logo span { color: var(--muted); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.06em; }
+    .nav-cta {
+      text-decoration: none;
+      color: var(--text);
+      border: 1px solid rgba(232, 160, 32, 0.9);
+      border-radius: 999px;
+      padding: 0.5rem 0.95rem;
+      font-size: 0.84rem;
+      transition: transform 220ms ease, background 220ms ease, color 220ms ease;
+    }
+    .nav-cta:hover { transform: translateY(-2px); background: var(--gold); color: #1d1302; }
+
+    .hero {
+      min-height: 100svh;
+      position: relative;
+      display: grid;
+      align-items: end;
+      isolation: isolate;
+      overflow: hidden;
+    }
+    .hero-grid {
+      position: absolute; inset: 0; z-index: -2;
+      background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 48px 48px;
+      opacity: 0.2;
+    }
+    .hero-glow {
+      position: absolute; inset: -30% -10% auto -10%; height: 85%;
+      z-index: -3;
+      background: radial-gradient(circle at 36% 28%, rgba(232, 160, 32, 0.4), rgba(232, 160, 32, 0.1) 30%, transparent 58%);
+      filter: blur(28px);
+      animation: pulse 6s ease-in-out infinite alternate;
+    }
+    .hero-noise {
+      position: absolute; inset: 0; z-index: -1;
+      background: rgba(255, 255, 255, 0.08);
+      filter: url(#noiseFilter);
+      opacity: 0.17;
+      pointer-events: none;
+      mix-blend-mode: soft-light;
+    }
+    @keyframes pulse { from { transform: translateY(-2%) scale(1); } to { transform: translateY(2%) scale(1.05); } }
+
+    .hero-inner {
+      width: min(calc(100% - 2rem), var(--maxw));
+      margin: 0 auto;
+      padding: clamp(5.4rem, 8vw, 7.5rem) 0 clamp(2rem, 4vw, 3rem);
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 1.2rem;
+      align-items: end;
+    }
+    .hero h1 { font-size: clamp(2.8rem, 8vw, 7.2rem); max-width: 10.2ch; overflow: hidden; }
+    .hero-line {
+      display: block;
+      transform: translateY(130%);
+      opacity: 0;
+      animation: rise 780ms cubic-bezier(0.2, 0.72, 0.2, 1) forwards;
+    }
+    .hero-line:nth-child(2) { animation-delay: 140ms; }
+    .hero-line:nth-child(3) { animation-delay: 300ms; }
+    @keyframes rise { to { transform: translateY(0); opacity: 1; } }
+    .hero-copy p { color: var(--muted); max-width: 58ch; margin-top: 1.2rem; font-size: 1.03rem; }
+
+    .hero-panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(155deg, rgba(18, 24, 34, 0.95), rgba(12, 18, 28, 0.92));
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+    }
+    .hero-panel h3 { font-size: 1.5rem; margin-bottom: 0.45rem; }
+    .hero-panel p { color: var(--muted); }
+
+    .trust {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: #0d1118;
+      overflow: hidden;
+    }
+    .trust-track {
+      display: flex;
+      gap: 2.2rem;
+      min-width: 200%;
+      padding: 0.62rem 0;
+      white-space: nowrap;
+      animation: marquee 24s linear infinite;
+    }
+    .trust-item { color: #d2d7e3; font-size: 0.81rem; text-transform: uppercase; letter-spacing: 0.08em; display: inline-flex; align-items: center; gap: 0.45rem; }
+    .trust-icon { width: 14px; height: 14px; border: 1px solid rgba(232,160,32,0.6); border-radius: 50%; display: inline-block; position: relative; }
+    .trust-icon::after { content: ""; position: absolute; inset: 3px; background: var(--gold); border-radius: 50%; opacity: 0.9; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    section { padding: clamp(3.7rem, 6vw, 6.3rem) 0; }
+    .section-title { font-size: clamp(2.2rem, 5vw, 4rem); margin-bottom: 0.8rem; }
+    .intro { max-width: 64ch; color: var(--muted); margin-bottom: 1.8rem; }
+
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: linear-gradient(160deg, rgba(255,255,255,0.03), rgba(19, 26, 38, 0.72));
+      padding: 1rem;
+      text-align: center;
+    }
+    .num { color: var(--gold); display: block; font-size: clamp(2.4rem, 4vw, 4.1rem); margin-bottom: 0.25rem; }
+    .stat p { color: var(--muted); font-size: 0.83rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .why-card {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--card);
+      padding: 1rem 1rem 1rem 1.15rem;
+      overflow: hidden;
+      transition: border-color 220ms ease, transform 220ms ease;
+    }
+    .why-card::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 0;
+      background: linear-gradient(to bottom, var(--gold), rgba(232,160,32,0.2));
+      transition: width 220ms ease;
+    }
+    .why-card:hover { border-color: rgba(232,160,32,0.45); transform: translateY(-4px); }
+    .why-card:hover::before { width: 4px; }
+    .why-card h3 { font-size: 1.35rem; margin-bottom: 0.3rem; }
+    .why-card p { color: var(--muted); font-size: 0.95rem; }
+
+    .packages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .pkg {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(155deg, #131a27, #0f141f);
+      padding: 1.3rem;
+      transition: transform 220ms ease, border-color 220ms ease;
+      position: relative;
+    }
+    .pkg:hover { transform: translateY(-6px); border-color: rgba(232,160,32,0.5); }
+    .pkg.featured {
+      border-color: rgba(232, 160, 32, 0.72);
+      box-shadow: 0 0 0 1px rgba(232,160,32,0.25), 0 28px 60px rgba(0,0,0,0.45);
+      transform: translateY(-8px);
+      background: linear-gradient(155deg, #181f2d, #121926);
+    }
+    .pkg-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: #1f1502;
+      padding: 0.16rem 0.58rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.8rem;
+    }
+    .pkg h3 { font-size: 1.8rem; margin-bottom: 0.45rem; }
+    .pkg p { color: var(--muted); margin-bottom: 0.6rem; }
+    .pkg ul { list-style: none; display: grid; gap: 0.35rem; color: #d4dae7; }
+    .pkg li::before { content: "- "; color: var(--gold); }
+
+    .testimonial {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      padding: clamp(1.3rem, 3vw, 2.2rem);
+      position: relative;
+      overflow: hidden;
+    }
+    .quote-mark {
+      position: absolute;
+      top: -18px;
+      left: 12px;
+      color: rgba(232, 160, 32, 0.25);
+      font-size: clamp(6rem, 9vw, 10rem);
+      line-height: 1;
+      font-family: "Barlow Condensed", sans-serif;
+    }
+    .testimonial blockquote { position: relative; z-index: 1; font-size: 1.14rem; max-width: 74ch; }
+    .testimonial p { margin-top: 1rem; color: var(--muted); position: relative; z-index: 1; }
+
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    .step {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1rem;
+      background: rgba(255,255,255,0.015);
+    }
+    .step-index { color: var(--gold); font-size: 2rem; display: inline-block; margin-bottom: 0.3rem; }
+    .step h3 { font-size: 1.3rem; margin-bottom: 0.35rem; }
+    .step p { color: var(--muted); font-size: 0.95rem; }
+
+    .cta-wrap {
+      position: relative;
+      background: linear-gradient(160deg, #0f141e, #0b1018);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .cta-wrap::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(650px 300px at 70% 40%, rgba(232,160,32,0.22), transparent 58%);
+      pointer-events: none;
+    }
+    .cta-inner {
+      width: min(calc(100% - 2rem), var(--maxw));
+      margin: 0 auto;
+      padding: clamp(3rem, 6vw, 5rem) 0;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+    .cta-inner h2 { font-size: clamp(2.2rem, 5vw, 4.2rem); margin-bottom: 0.4rem; }
+    .cta-inner p { color: var(--muted); max-width: 58ch; }
+    .cta-form { display: flex; flex-wrap: wrap; gap: 0.55rem; justify-content: flex-end; }
+    .cta-form input {
+      min-width: 240px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      padding: 0.82rem 0.9rem;
+      background: rgba(6, 10, 15, 0.9);
+      color: var(--text);
+      font: inherit;
+      outline: none;
+    }
+    .cta-form input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(232,160,32,0.2); }
+    .cta-form button {
+      border: 0;
+      border-radius: 11px;
+      background: var(--gold);
+      color: #1d1403;
+      padding: 0.82rem 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .foot { text-align: center; color: var(--muted); font-size: 0.83rem; padding: 1rem 0 2rem; }
+
+    @media (max-width: 1020px) {
+      .hero-inner, .cta-inner { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .why-grid, .steps { grid-template-columns: repeat(2, 1fr); }
+      .packages { grid-template-columns: 1fr; }
+      .pkg.featured { transform: none; }
+      .cta-form { justify-content: flex-start; }
+    }
+    @media (max-width: 640px) {
+      .stats, .why-grid, .steps { grid-template-columns: 1fr; }
+      .container, .hero-inner, .nav-inner, .cta-inner { width: min(calc(100% - 1.1rem), var(--maxw)); }
+      .nav-cta { display: none; }
+      .cta-form input, .cta-form button { width: 100%; }
+    }
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">
+  <svg width="0" height="0" aria-hidden="true" focusable="false">
+    <filter id="noiseFilter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"></feTurbulence>
+      <feColorMatrix type="saturate" values="0"></feColorMatrix>
+    </filter>
+  </svg>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="logo">
         <strong>Nathan Bingle Photography</strong>
-        <small>Rock Hill, SC School Photography</small>
+        <span>Rock Hill, SC School & Sports Photography</span>
       </div>
-      <a href="#proposal" class="pill-btn">Request School Proposal</a>
+      <a class="nav-cta" href="#proposal">Request Proposal</a>
     </div>
   </header>
+
   <main>
     <section class="hero">
+      <div class="hero-glow"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-noise"></div>
       <div class="hero-inner">
         <div class="hero-copy">
           <span class="eyebrow">Rock Hill High School | Rock Hill SD</span>
           <h1>
-            <span class="line">Cutting-Edge</span>
-            <span class="line">School Photos,</span>
-            <span class="line">Zero Day-Of Chaos</span>
+            <span class="hero-line">Picture Day</span>
+            <span class="hero-line">Without</span>
+            <span class="hero-line">the Chaos</span>
           </h1>
           <p>
-            Nathan Bingle Photography delivers a cinematic-quality portrait program for
-            Rock Hill High School in Rock Hill, SC, combining fast operations, family-first communication,
-            and revenue-positive results for your school.
+            Nathan Bingle Photography delivers high-end portrait programs for Rock Hill High School
+            in Rock Hill, SC, engineered for smooth logistics, stronger participation, and
+            measurable school revenue results.
           </p>
         </div>
-        <aside class="hero-card">
+        <aside class="hero-panel reveal">
           <h3>Rock Hill SD Program Snapshot</h3>
-          <p>Locally based team. 90%+ participation framework. 48-hour delivery standard. Transparent revenue share model.</p>
+          <p>Zero chaos on picture day, 90%+ participation rates, 48hr turnaround, and a transparent revenue share model built for school leaders.</p>
         </aside>
       </div>
     </section>
-    <section class="fade">
+
+    <div class="trust">
+      <div class="trust-track">
+        <span class="trust-item"><span class="trust-icon"></span>Fort Mill Based Team</span>
+        <span class="trust-item"><span class="trust-icon"></span>90%+ Participation Strategies</span>
+        <span class="trust-item"><span class="trust-icon"></span>48 Hour Turnaround</span>
+        <span class="trust-item"><span class="trust-icon"></span>Revenue Share Transparency</span>
+        <span class="trust-item"><span class="trust-icon"></span>District Ready Workflow</span>
+        <span class="trust-item"><span class="trust-icon"></span>Fort Mill Based Team</span>
+        <span class="trust-item"><span class="trust-icon"></span>90%+ Participation Strategies</span>
+        <span class="trust-item"><span class="trust-icon"></span>48 Hour Turnaround</span>
+      </div>
+    </div>
+
+    <section class="reveal">
       <div class="container">
-        <span class="eyebrow">School Performance Metrics</span>
-        <h2 class="section-title">Numbers That Matter To Administrators</h2>
-        <p class="section-intro">Every detail is optimized for less staff friction, stronger parent response, and a better picture day experience.</p>
+        <span class="eyebrow">Performance Metrics</span>
+        <h2 class="section-title">Numbers That Earn Trust</h2>
+        <p class="intro">Every program is built to reduce admin burden, drive parent engagement, and improve school-wide outcomes.</p>
         <div class="stats">
-          <article class="stat"><span class="num" data-count="90" data-suffix="%">0%</span><p class="label">Participation Rate</p></article>
-          <article class="stat"><span class="num" data-count="48" data-suffix="hr">0hr</span><p class="label">Turnaround Time</p></article>
-          <article class="stat"><span class="num" data-count="0">0</span><p class="label">Picture Day Chaos</p></article>
-          <article class="stat"><span class="num" data-count="100" data-suffix="%">0%</span><p class="label">Revenue Share Clarity</p></article>
+          <article class="stat"><span class="num" data-count="90" data-suffix="%">0%</span><p>Participation Rate</p></article>
+          <article class="stat"><span class="num" data-count="48" data-suffix="hr">0hr</span><p>Turnaround</p></article>
+          <article class="stat"><span class="num" data-count="0">0</span><p>Picture Day Chaos</p></article>
+          <article class="stat"><span class="num" data-count="100" data-suffix="%">0%</span><p>Revenue Clarity</p></article>
         </div>
       </div>
     </section>
-    <section class="fade">
+
+    <section class="reveal">
       <div class="container">
-        <span class="eyebrow">Photo Program Packages</span>
-        <h2 class="section-title">Built For Rock Hill High School Goals</h2>
-        <p class="section-intro">Start lean or deploy full partnership support. Each package is designed to increase outcomes while reducing day-of stress for staff.</p>
-        <div class="cards">
-          <article class="card"><span class="chip">Starter</span><h3>Starter</h3><p>Best for schools seeking a polished, reliable upgrade without complexity.</p><ul><li>Picture day logistics plan</li><li>Family ordering portal</li><li>Core portrait workflow</li><li>Admin support desk</li></ul></article>
-          <article class="card"><span class="chip">Premier</span><h3>Premier</h3><p>Our most requested package for high participation and rapid image delivery.</p><ul><li>90%+ participation strategy</li><li>48-hour gallery turnaround</li><li>Optimized retake process</li><li>Dedicated on-site lead</li></ul></article>
-          <article class="card"><span class="chip">Program Partner</span><h3>Program Partner</h3><p>Long-term growth partnership with transparent revenue share alignment.</p><ul><li>Customized revenue model</li><li>District-ready communications</li><li>Multi-event support strategy</li><li>Quarterly review cadence</li></ul></article>
+        <span class="eyebrow">Why Nathan Bingle Photography</span>
+        <h2 class="section-title">Built Like A True School Partner</h2>
+        <p class="intro">Operational excellence, local support, and premium image quality designed for modern schools and sports programs.</p>
+        <div class="why-grid">
+          <article class="why-card reveal"><h3>Zero Chaos Logistics</h3><p>Flow planning and staffing that keep lines moving and campuses calm.</p></article>
+          <article class="why-card reveal"><h3>Family-First Experience</h3><p>Clear communication, intuitive ordering, and support families appreciate.</p></article>
+          <article class="why-card reveal"><h3>High Participation Model</h3><p>Proven systems that regularly drive participation beyond 90%.</p></article>
+          <article class="why-card reveal"><h3>Premium Portrait Quality</h3><p>Cinematic color, consistent lighting, and polished post-processing.</p></article>
+          <article class="why-card reveal"><h3>48hr Delivery</h3><p>Fast turnaround without sacrificing consistency or image standards.</p></article>
+          <article class="why-card reveal"><h3>Revenue Share Alignment</h3><p>Transparent reporting and a model that supports school fundraising goals.</p></article>
         </div>
       </div>
     </section>
-    <section class="fade">
+
+    <section class="reveal">
       <div class="container">
-        <span class="eyebrow">Execution Framework</span>
-        <h2 class="section-title">4 Steps To A Better Picture Day</h2>
+        <span class="eyebrow">Program Options</span>
+        <h2 class="section-title">Packages For Rock Hill High School</h2>
+        <p class="intro">Choose the engagement level that best matches your school goals and timeline.</p>
+        <div class="packages">
+          <article class="pkg reveal">
+            <span class="pkg-badge">Starter</span>
+            <h3>Starter</h3>
+            <p>A clean professional upgrade with smooth execution.</p>
+            <ul>
+              <li>Picture day logistics mapping</li>
+              <li>Family ordering portal</li>
+              <li>Core portrait delivery</li>
+              <li>School admin support</li>
+            </ul>
+          </article>
+          <article class="pkg featured reveal">
+            <span class="pkg-badge">Most Popular</span>
+            <h3>Premier</h3>
+            <p>High-performance package for participation and parent satisfaction.</p>
+            <ul>
+              <li>90%+ participation framework</li>
+              <li>48hr gallery launch</li>
+              <li>Retake optimization process</li>
+              <li>Dedicated on-site lead</li>
+            </ul>
+          </article>
+          <article class="pkg reveal">
+            <span class="pkg-badge">Program Partner</span>
+            <h3>Program Partner</h3>
+            <p>Long-term alignment with transparent reporting and growth planning.</p>
+            <ul>
+              <li>Custom revenue share model</li>
+              <li>District-ready communication kit</li>
+              <li>Multi-event strategy support</li>
+              <li>Quarterly performance reviews</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <div class="container">
+        <span class="eyebrow">What Leaders Say</span>
+        <h2 class="section-title">Trusted Across Rock Hill, SC</h2>
+        <article class="testimonial">
+          <div class="quote-mark">"</div>
+          <blockquote>
+            Nathan Bingle Photography transformed our picture day experience. Operations were smooth, staff stress dropped, and families responded with overwhelmingly positive feedback. This is the first time picture day felt premium and predictable.
+          </blockquote>
+          <p>Operations Administrator, Rock Hill SD</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <div class="container">
+        <span class="eyebrow">Execution System</span>
+        <h2 class="section-title">4 Steps To Flawless Delivery</h2>
         <div class="steps">
-          <article class="step"><span class="index">01</span><h3>Align</h3><p>We map your calendar, traffic flow, and goals across district constraints.</p></article>
-          <article class="step"><span class="index">02</span><h3>Mobilize</h3><p>Families get clear messaging and staff get a simple plan with zero confusion.</p></article>
-          <article class="step"><span class="index">03</span><h3>Capture</h3><p>Fast stations and clean direction keep lines moving while preserving quality.</p></article>
-          <article class="step"><span class="index">04</span><h3>Deliver</h3><p>Images launch in 48 hours with support, reporting, and transparent outcomes.</p></article>
+          <article class="step reveal"><span class="step-index">01</span><h3>Plan</h3><p>Align calendar, traffic flow, and program goals before day one.</p></article>
+          <article class="step reveal"><span class="step-index">02</span><h3>Prepare</h3><p>Schools and families receive clear communication and schedule guidance.</p></article>
+          <article class="step reveal"><span class="step-index">03</span><h3>Photograph</h3><p>Stationed team keeps throughput high while preserving portrait quality.</p></article>
+          <article class="step reveal"><span class="step-index">04</span><h3>Deliver</h3><p>Galleries launch fast with reporting and transparent program outcomes.</p></article>
         </div>
       </div>
     </section>
-    <section class="fade">
-      <div class="container">
-        <span class="eyebrow">School Leader Feedback</span>
-        <h2 class="section-title">Trusted In Rock Hill, SC</h2>
-        <div class="testimonials">
-          <article class="quote"><span class="mark">"</span><blockquote>Nathan made this the first picture day that felt fully under control from start to finish. Participation jumped, parents were happier, and our staff had bandwidth to focus on students instead of logistics.</blockquote><p class="author">Operations Administrator, Rock Hill SD</p></article>
-          <aside class="proof"><h3>Local Partner Advantage</h3><p>Nathan Bingle Photography combines premium portrait quality with school-ready systems built for district expectations and real-world timelines.</p></aside>
+
+    <section class="cta-wrap reveal" id="proposal">
+      <div class="cta-inner">
+        <div>
+          <span class="eyebrow">Launch Your Next Picture Day</span>
+          <h2>Get A Rock Hill High School Proposal</h2>
+          <p>Share your school email and get a custom plan with package options, timeline recommendations, and revenue-share guidance.</p>
         </div>
-      </div>
-    </section>
-    <section class="cta-wrap fade" id="proposal">
-      <div class="container">
-        <div class="cta">
-          <div>
-            <span class="eyebrow">Launch The Next Picture Day</span>
-            <h2>Get A Rock Hill High School Proposal</h2>
-            <p>Share your school email and get a customized plan with timelines, package fit, and revenue share options built for your community.</p>
-          </div>
-          <form class="form" action="#" method="post">
-            <input name="email" type="email" placeholder="Your school email" required />
-            <button type="submit">Request Proposal</button>
-          </form>
-        </div>
+        <form class="cta-form" action="#" method="post">
+          <input type="email" name="email" placeholder="Your school email" required />
+          <button type="submit">Request Proposal</button>
+        </form>
       </div>
     </section>
   </main>
+
   <p class="foot">Serving Rock Hill High School | Rock Hill, SC | Rock Hill SD</p>
+
   <script>
-    const revealObs = new IntersectionObserver((entries) => {
+    const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-          revealObs.unobserve(entry.target);
+          entry.target.classList.add("in");
+          revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.16 });
-    document.querySelectorAll(".fade").forEach((el) => revealObs.observe(el));
-    const countObs = new IntersectionObserver((entries) => {
+    }, { threshold: 0.14 });
+    document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
+
+    const counterObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
         const el = entry.target;
         if (el.dataset.done === "1") return;
         el.dataset.done = "1";
-        const target = Number(el.dataset.count || 0);
+
+        const target = Number(el.dataset.count || "0");
         const suffix = el.dataset.suffix || "";
         const start = performance.now();
-        const dur = 1200;
+        const duration = 1300;
+
         const tick = (now) => {
-          const p = Math.min((now - start) / dur, 1);
-          const v = Math.floor(target * (1 - Math.pow(1 - p, 3)));
-          el.textContent = v + suffix;
-          if (p < 1) requestAnimationFrame(tick);
+          const t = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - t, 3);
+          const value = Math.floor(target * eased);
+          el.textContent = value + suffix;
+          if (t < 1) requestAnimationFrame(tick);
+          else el.textContent = target + suffix;
         };
         requestAnimationFrame(tick);
-        countObs.unobserve(el);
+        counterObserver.unobserve(el);
       });
-    }, { threshold: 0.55 });
-    document.querySelectorAll(".num").forEach((n) => countObs.observe(n));
+    }, { threshold: 0.52 });
+    document.querySelectorAll(".num").forEach((el) => counterObserver.observe(el));
   </script>
 </body>
 </html>
